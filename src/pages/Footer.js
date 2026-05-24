@@ -26,11 +26,11 @@ function Footer() {
        
         <div className="col">
           <h4>Our Courses</h4>
-          <a href="#">Web Development</a>
-          <a href="#">Digital Marketing</a>
-          <a href="#">SEO</a>
-          <a href="#">UI/UX Design</a>
-          <a href="#">Freelancing...</a>
+          <a href="https://facebook.com">Web Development</a>
+          <a href="https://facebook.com">Digital Marketing</a>
+          <a href="https://facebook.com">SEO</a>
+          <a href="https://facebook.com">UI/UX Design</a>
+          <a href="https://facebook.com">Freelancing...</a>
           <a>more</a>
         </div>
 

@@ -8,7 +8,7 @@ function Dashboard() {
 
   const [loading, setLoading] = useState(true);
 
-  const [menuOpen, setMenuOpen] = useState(false);
+ 
 
   // GET USER
   useEffect(() => {
