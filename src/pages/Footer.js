@@ -31,7 +31,7 @@ function Footer() {
           <a href="https://facebook.com">SEO</a>
           <a href="https://facebook.com">UI/UX Design</a>
           <a href="https://facebook.com">Freelancing...</a>
-          <a>more</a>
+          <a href="https://instagram.com">more</a>
         </div>
 
        
