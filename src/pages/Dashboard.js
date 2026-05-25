@@ -19,7 +19,7 @@ function Dashboard() {
       "https://school-backend-1pzt.onrender.com/api/auth/dashboard",
       {
         headers: {
-          Authorization: token,
+          Authorization: `Bearer ${token}`,
         },
       }
     )

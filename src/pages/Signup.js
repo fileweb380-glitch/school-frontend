@@ -12,12 +12,14 @@ function Signup() {
 
  const handleSubmit = async () => {
   try {
-    await axios.post(
+    const res = await axios.post(
       "https://school-backend-1pzt.onrender.com/api/auth/signup",
       form
     );
-    window.location.href = "/dashboard";
+   localStorage.setItem("token", res.data.token);
     alert("Registered successfully");
+    window.location.href = "/dashboard";
+
   } catch (err) {
     alert("Signup failed");
   }
