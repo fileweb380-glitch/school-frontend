@@ -8,12 +8,19 @@ function Dashboard() {
 
   const [loading, setLoading] = useState(true);
 
- 
-
   // GET USER
   useEffect(() => {
 
     const token = localStorage.getItem("token");
+
+    // IF NO TOKEN
+    if (!token) {
+
+      window.location.href = "/login";
+
+      return;
+
+    }
 
     axios.get(
       "https://school-backend-1pzt.onrender.com/api/auth/dashboard",
@@ -26,6 +33,8 @@ function Dashboard() {
 
     .then((res) => {
 
+      console.log(res.data);
+
       setUser(res.data);
 
       setLoading(false);
@@ -35,6 +44,8 @@ function Dashboard() {
     .catch((err) => {
 
       console.log(err);
+
+      alert("User not found");
 
       setLoading(false);
 
@@ -54,10 +65,10 @@ function Dashboard() {
     const token = localStorage.getItem("token");
 
     axios.delete(
-      "http://localhost:4000/api/auth/delete",
+      "https://school-backend-1pzt.onrender.com/api/auth/delete",
       {
         headers: {
-          Authorization: token,
+          Authorization: `Bearer ${token}`,
         },
       }
     )
@@ -65,6 +76,8 @@ function Dashboard() {
     .then(() => {
 
       localStorage.removeItem("token");
+
+      alert("Account deleted");
 
       window.location.href = "/signup";
 
@@ -87,9 +100,7 @@ function Dashboard() {
 
       <div className="loading-screen">
 
-        <div className="loader"></div>
-
-        <p>Loading Dashboard...</p>
+        <h2>Loading Dashboard...</h2>
 
       </div>
 
@@ -97,7 +108,7 @@ function Dashboard() {
 
   }
 
-  // ERROR
+  // USER NOT FOUND
   if (!user) {
 
     return (
@@ -116,14 +127,7 @@ function Dashboard() {
 
     <div className="dashboard">
 
-      {/* SIDEBAR */}
-     
-
-      {/* MAIN */}
       <main className="main-content">
-
-        {/* MOBILE MENU */}
-        
 
         {/* HEADER */}
         <div className="header-box">
@@ -167,6 +171,11 @@ function Dashboard() {
           </div>
 
           <div className="card">
+            <h3>📧 Email</h3>
+            <p>{user.email}</p>
+          </div>
+
+          <div className="card">
             <h3>📞 Phone</h3>
             <p>{user.phoneNumber}</p>
           </div>
@@ -178,7 +187,7 @@ function Dashboard() {
 
         </div>
 
-        {/* COURSE BANNER */}
+        {/* COURSE */}
         <div className="course-banner">
 
           <div>
@@ -194,15 +203,17 @@ function Dashboard() {
           </div>
 
           <div>
-            <Link to='/soon'>
-            <button className="class">
-              Start Class
-            </button>
-            </Link>
-          </div>
 
-          <div className="banner-icon">
-            🎬
+            <Link to="/soon">
+
+              <button className="class">
+
+                Start Class
+
+              </button>
+
+            </Link>
+
           </div>
 
         </div>
@@ -236,6 +247,7 @@ function Dashboard() {
     </div>
 
   );
+
 }
 
 export default Dashboard;

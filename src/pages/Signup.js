@@ -10,18 +10,41 @@ function Signup() {
     "Cinematography", "Videography", "YouTube automation", "Tiktok automation", "World-Languages",
     "Content-Creater", "Sales", "Video-Editing","SMM", "AI-Developing" ]                                 
 
- const handleSubmit = async () => {
+const handleSubmit = async () => {
+
   try {
+
     const res = await axios.post(
       "https://school-backend-1pzt.onrender.com/api/auth/signup",
       form
     );
-   localStorage.setItem("token", res.data.token);
-    alert("Registered successfully");
-    window.location.href = "/dashboard";
+
+    console.log(res.data);
+
+    // SAVE TOKEN
+    if (res.data.token) {
+
+      localStorage.setItem(
+        "token",
+        res.data.token
+      );
+
+      alert("Registered successfully");
+
+      window.location.href = "/dashboard";
+
+    } else {
+
+      alert("No token returned from backend");
+
+    }
 
   } catch (err) {
+
+    console.log(err);
+
     alert("Signup failed");
+
   }
 
 };

@@ -55,7 +55,7 @@ function About() {
         <div className="about-image">
 
           <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+            src="/photo_2026-05-07_18-18-02.jpg"
             alt="Students"
           />
 

@@ -1645,7 +1645,7 @@ body{
 
 /* BUTTON */
 
-.join-btn{
+.join-btnn{
   display: inline-block;
   margin-top: 40px;
   text-decoration: none;
@@ -1670,6 +1670,7 @@ body{
 .join-btn:hover{
   background: white;
   transform: translateY(-5px);
+  color: #000000;
 }
 
 /* IMAGE */
